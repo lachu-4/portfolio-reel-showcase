@@ -1,93 +1,187 @@
-import { ArrowDown, Github, Linkedin, Twitter } from 'lucide-react';
+import { Code, User, Github, Volume2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [loadedCount, setLoadedCount] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
+    // Animate the loaded count
+    const interval = setInterval(() => {
+      setLoadedCount(prev => {
+        if (prev >= 6) {
+          clearInterval(interval);
+          return 6;
+        }
+        return prev + 1;
+      });
+    }, 200);
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden py-20"
     >
-      {/* Background gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-slow" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse-slow delay-1000" />
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/10" />
+      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-accent/5 to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div
-          className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${
+          className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <p className="text-primary font-medium mb-4 tracking-wider uppercase text-sm">
-            Creative Developer
-          </p>
-          
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-            Hi, I'm{' '}
-            <span className="text-gradient">John Doe</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-            I craft beautiful digital experiences through clean code and thoughtful design.
-            Turning ideas into reality, one pixel at a time.
-          </p>
+          {/* Main content wrapper */}
+          <div className="glass rounded-3xl p-8 md:p-12 max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left side - Text content */}
+              <div>
+                {/* Status badges */}
+                <div className="flex flex-wrap gap-3 mb-8">
+                  <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 text-sm border border-border">
+                    <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    SYSTEM READY
+                  </span>
+                  <span className="px-4 py-2 rounded-full bg-secondary/80 text-sm border border-border">
+                    PORTFOLIO 2025
+                  </span>
+                  <span className="px-4 py-2 rounded-full bg-secondary/80 text-sm border border-border">
+                    UI LOADING
+                  </span>
+                </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            <a
-              href="#projects"
-              className="px-8 py-4 bg-gradient-primary rounded-full font-semibold text-primary-foreground
-                         hover:opacity-90 transition-all duration-300 glow-primary hover:scale-105"
-            >
-              View My Work
-            </a>
-            <a
-              href="#contact"
-              className="px-8 py-4 border border-border rounded-full font-semibold
-                         hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
-            >
-              Get In Touch
-            </a>
+                {/* Main heading */}
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  Welcome to<br />
+                  my Portfolio<br />
+                  Website
+                </h1>
+
+                {/* Description */}
+                <p className="text-muted-foreground mb-8 max-w-md leading-relaxed">
+                  Building modern, reliable, and fast digital experiences with a focus on clean
+                  UI and solid engineering.
+                </p>
+
+                {/* Live Status */}
+                <p className="text-primary font-medium mb-4 tracking-wider text-sm">
+                  LIVE STATUS
+                </p>
+
+                {/* Action buttons */}
+                <div className="flex flex-wrap gap-3 mb-6">
+                  <a
+                    href="#projects"
+                    className="flex items-center gap-2 px-5 py-3 rounded-full bg-secondary border border-border
+                               hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                  >
+                    <Code size={16} />
+                    CODE
+                  </a>
+                  <a
+                    href="#about"
+                    className="flex items-center gap-2 px-5 py-3 rounded-full bg-secondary border border-border
+                               hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                  >
+                    <User size={16} />
+                    PROFILE
+                  </a>
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-5 py-3 rounded-full bg-secondary border border-border
+                               hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                  >
+                    <Github size={16} />
+                    SOURCE
+                  </a>
+                </div>
+
+                {/* Website link */}
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary text-sm
+                             border border-primary/30 hover:bg-primary/30 transition-all duration-300"
+                >
+                  <span className="w-2 h-2 rounded-full bg-primary" />
+                  www.amine.dev
+                </a>
+              </div>
+
+              {/* Right side - Core UI Widget */}
+              <div className="flex justify-center lg:justify-end">
+                <div className="relative">
+                  {/* Core UI Card */}
+                  <div className="glass rounded-2xl p-6 w-80 border border-border">
+                    {/* Header */}
+                    <div className="flex justify-between items-center mb-6 text-sm">
+                      <span className="text-muted-foreground tracking-wider">CORE UI</span>
+                      <span className="text-primary flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                        ONLINE
+                      </span>
+                    </div>
+
+                    {/* Circular widget */}
+                    <div className="relative flex items-center justify-center mb-6">
+                      {/* Outer ring */}
+                      <div className="w-48 h-48 rounded-full border-2 border-primary/30 flex items-center justify-center relative">
+                        {/* Middle ring with glow */}
+                        <div className="w-36 h-36 rounded-full border border-primary/50 flex items-center justify-center relative"
+                             style={{ boxShadow: 'var(--glow-primary)' }}>
+                          {/* Inner circle */}
+                          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center">
+                            <span className="text-foreground font-bold tracking-widest text-sm">WELCOME</span>
+                          </div>
+                        </div>
+                        
+                        {/* Orbiting dots */}
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1">
+                          <div className="w-8 h-8 rounded-full bg-secondary border border-border flex items-center justify-center">
+                            <Volume2 size={14} className="text-muted-foreground" />
+                          </div>
+                        </div>
+                        <div className="absolute top-1/4 right-0 translate-x-2">
+                          <div className="w-4 h-4 rounded-full bg-primary animate-pulse" />
+                        </div>
+                        <div className="absolute bottom-1/3 left-0 -translate-x-2">
+                          <div className="w-3 h-3 rounded-full bg-primary/60" />
+                        </div>
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1">
+                          <div className="w-3 h-3 rounded-full bg-primary/40" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Stats */}
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-secondary/50 rounded-xl p-4">
+                        <div className="text-3xl font-bold mb-1">0{loadedCount}</div>
+                        <div className="text-sm text-muted-foreground">Loaded</div>
+                      </div>
+                      <div className="bg-secondary/50 rounded-xl p-4">
+                        <div className="text-3xl font-bold mb-1">12ms</div>
+                        <div className="text-sm text-muted-foreground">Stable</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
-          {/* Social Links */}
-          <div className="flex items-center justify-center gap-6">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
-            >
-              <Github size={24} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
-            >
-              <Linkedin size={24} />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
-            >
-              <Twitter size={24} />
-            </a>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <ArrowDown className="text-muted-foreground" size={28} />
         </div>
       </div>
+
+      {/* Sound button - bottom right */}
+      <button className="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-secondary border border-border
+                         flex items-center justify-center hover:border-primary/50 transition-all duration-300 z-20">
+        <Volume2 size={20} className="text-muted-foreground" />
+      </button>
     </section>
   );
 };

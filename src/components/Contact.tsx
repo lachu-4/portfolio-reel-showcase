@@ -1,4 +1,4 @@
-import { Mail, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,6 +8,12 @@ import { useToast } from '@/hooks/use-toast';
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
   const sectionRef = useRef<HTMLElement>(null);
   const { toast } = useToast();
 
@@ -28,20 +34,30 @@ const Contact = () => {
     return () => observer.disconnect();
   }, []);
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Construct WhatsApp message
+    const whatsappMessage = `Hi Lakshmanan!%0A%0A*Name:* ${encodeURIComponent(formData.name)}%0A*Email:* ${encodeURIComponent(formData.email)}%0A*Subject:* ${encodeURIComponent(formData.subject)}%0A%0A*Message:*%0A${encodeURIComponent(formData.message)}`;
+    
+    const whatsappUrl = `https://wa.me/919843454001?text=${whatsappMessage}`;
+    
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, '_blank');
     
     toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
+      title: "Redirecting to WhatsApp!",
+      description: "You'll be redirected to send your message via WhatsApp.",
     });
     
     setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+    setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
   return (
@@ -80,7 +96,21 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="font-medium">hello@johndoe.com</p>
+                    <a href="mailto:lachumanan33@gmail.com" className="font-medium hover:text-primary transition-colors">
+                      lachumanan33@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="p-4 rounded-xl bg-primary/10">
+                    <Phone className="text-primary" size={24} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Phone / WhatsApp</p>
+                    <a href="tel:+919843454001" className="font-medium hover:text-primary transition-colors">
+                      +91 9843454001
+                    </a>
                   </div>
                 </div>
 
@@ -89,8 +119,8 @@ const Contact = () => {
                     <MapPin className="text-primary" size={24} />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="font-medium">San Francisco, CA</p>
+                    <p className="text-sm text-muted-foreground">Name</p>
+                    <p className="font-medium">Lakshmanan M</p>
                   </div>
                 </div>
               </div>
@@ -107,6 +137,8 @@ const Contact = () => {
                     <Input
                       id="name"
                       name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
                       placeholder="Your name"
                       required
                       className="bg-secondary border-border focus:border-primary"
@@ -120,6 +152,8 @@ const Contact = () => {
                       id="email"
                       name="email"
                       type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="your@email.com"
                       required
                       className="bg-secondary border-border focus:border-primary"
@@ -134,6 +168,8 @@ const Contact = () => {
                   <Input
                     id="subject"
                     name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
                     placeholder="Project inquiry"
                     required
                     className="bg-secondary border-border focus:border-primary"
@@ -147,6 +183,8 @@ const Contact = () => {
                   <Textarea
                     id="message"
                     name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder="Tell me about your project..."
                     rows={5}
                     required
@@ -164,7 +202,7 @@ const Contact = () => {
                     'Sending...'
                   ) : (
                     <>
-                      Send Message
+                      Send via WhatsApp
                       <Send className="ml-2" size={18} />
                     </>
                   )}

@@ -1,5 +1,6 @@
 import { MapPin, Briefcase, Download, Github, MessageCircle } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import profilePhoto from '@/assets/profile-photo.jpeg';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -133,15 +134,11 @@ const About = () => {
                 
                 {/* Avatar container */}
                 <div className="relative w-72 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-secondary border-2 border-primary/30">
-                  {/* Placeholder avatar - anime style silhouette */}
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-card to-secondary">
-                    <div className="text-center">
-                      <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center">
-                        <span className="text-4xl font-bold">A</span>
-                      </div>
-                      <p className="text-muted-foreground text-sm">Your Photo Here</p>
-                    </div>
-                  </div>
+                  <img 
+                    src={profilePhoto} 
+                    alt="Lakshmanan M" 
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
 
                 {/* Decorative elements */}

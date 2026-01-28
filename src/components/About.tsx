@@ -45,12 +45,12 @@ const About = () => {
 
               {/* Main heading */}
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
-                Hi, I'm Amine
+                Hi, I'm Lakshmanan M
               </h2>
 
               {/* Subtitle */}
               <h3 className="text-2xl md:text-3xl font-bold text-primary mb-6">
-                Frontend Developer
+                Full Stack Developer
               </h3>
 
               {/* Description */}

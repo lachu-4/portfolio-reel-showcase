@@ -49,9 +49,6 @@ const Hero = () => {
                   <span className="px-4 py-2 rounded-full bg-secondary/80 text-sm border border-border">
                     PORTFOLIO 2025
                   </span>
-                  <span className="px-4 py-2 rounded-full bg-secondary/80 text-sm border border-border">
-                    UI LOADING
-                  </span>
                 </div>
 
                 {/* Main heading */}
@@ -102,15 +99,6 @@ const Hero = () => {
                   </a>
                 </div>
 
-                {/* Website link */}
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary text-sm
-                             border border-primary/30 hover:bg-primary/30 transition-all duration-300"
-                >
-                  <span className="w-2 h-2 rounded-full bg-primary" />
-                  www.amine.dev
-                </a>
               </div>
 
               {/* Right side - Core UI Widget */}

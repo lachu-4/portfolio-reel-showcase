@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import profilePhoto from '@/assets/profile-photo.jpeg';
+import aboutMePhoto from '@/assets/about-me-photo.jpg';
 
 const AboutMe = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,10 +23,9 @@ const AboutMe = () => {
   }, []);
 
   const skills = [
-    "Web Development (HTML, CSS, JavaScript)",
-    "Backend & Full-Stack Technologies",
-    "AI-powered and real-time applications",
-    "Problem-solving and logical thinking"
+    "Figma and Adobe XD for UI/UX design",
+    "HTML, CSS, JavaScript, and Tailwind CSS for frontend development",
+    "Building personal projects and exploring new web technologies to expand my portfolio"
   ];
 
   return (
@@ -45,14 +44,14 @@ const AboutMe = () => {
             <div className="flex items-center gap-3 mb-8">
               <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/30">
                 <img 
-                  src={profilePhoto} 
+                  src={aboutMePhoto} 
                   alt="Lakshmanan M" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">@lakshmanan</p>
-                <p className="text-primary font-medium">Full Stack Developer</p>
+                <p className="text-primary font-medium">Web Developer</p>
               </div>
             </div>
 
@@ -67,15 +66,15 @@ const AboutMe = () => {
                 {/* Main paragraphs */}
                 <div className="space-y-6 text-muted-foreground leading-relaxed">
                   <p>
-                    Hi! I'm <span className="text-foreground font-medium">Lakshmanan M</span>, a passionate and motivated B.Tech Information Technology student from Tiruvannamalai, Tamil Nadu. I completed my schooling at Bhagavan Higher Secondary School and I'm currently pursuing my degree at CMS College of Engineering, Coimbatore.
+                    Hi! I'm <span className="text-foreground font-medium">Lakshmanan M</span>, a passionate and creative Web Developer.
                   </p>
                   
                   <p>
-                    I have a strong interest in software development and modern web technologies, and I enjoy building clean, user-friendly, and efficient applications. I love turning ideas into real-world digital solutions through code.
+                    I'm a B.Tech Information Technology student at CMS College of Engineering, Coimbatore, where I've developed a strong interest in designing intuitive and visually appealing user interfaces that bring ideas to life on the web.
                   </p>
                   
                   <p>
-                    I'm continuously learning and exploring new technologies, especially in full-stack development and AI-based applications, and I enjoy working on projects that solve real problems and improve user experience.
+                    I focus on modern web design, responsive layouts, and interactive user experiences that balance aesthetics with functionality.
                   </p>
                   
                   <p className="text-foreground">
@@ -114,7 +113,7 @@ const AboutMe = () => {
                   {/* Image container */}
                   <div className="relative w-64 h-80 md:w-72 md:h-96 rounded-xl overflow-hidden border-2 border-primary/40 bg-gradient-to-br from-primary/20 to-secondary">
                     <img 
-                      src={profilePhoto} 
+                      src={aboutMePhoto} 
                       alt="Lakshmanan M" 
                       className="w-full h-full object-cover object-top"
                     />

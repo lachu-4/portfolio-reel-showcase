@@ -106,16 +106,18 @@ const AboutMe = () => {
               {/* Right side - Image */}
               <div className="flex justify-center lg:justify-end">
                 <div className="relative">
-                  {/* Decorative border */}
-                  <div className="absolute -inset-2 border-2 border-primary/30 rounded-xl transform rotate-3" />
-                  <div className="absolute -inset-2 border-2 border-primary/20 rounded-xl transform -rotate-2" />
+                  {/* Decorative corner brackets */}
+                  <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-primary/60" />
+                  <div className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-primary/60" />
+                  <div className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-primary/60" />
+                  <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-primary/60" />
                   
-                  {/* Image container */}
-                  <div className="relative w-64 h-80 md:w-72 md:h-96 rounded-xl overflow-hidden border-2 border-primary/40 bg-gradient-to-br from-primary/20 to-secondary">
+                  {/* Square image container */}
+                  <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-sm overflow-hidden border border-primary/30 bg-gradient-to-br from-primary/20 to-secondary">
                     <img 
                       src={aboutMePhoto} 
                       alt="Lakshmanan M" 
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-full object-cover object-center"
                     />
                     
                     {/* Overlay gradient */}
@@ -123,8 +125,7 @@ const AboutMe = () => {
                   </div>
 
                   {/* Decorative dots */}
-                  <div className="absolute -bottom-4 -right-4 w-8 h-8 rounded-full bg-primary/40 animate-pulse" />
-                  <div className="absolute -top-2 -left-2 w-4 h-4 rounded-full bg-primary/60" />
+                  <div className="absolute -bottom-4 -right-4 w-3 h-3 rounded-full bg-primary/40 animate-pulse" />
                 </div>
               </div>
             </div>

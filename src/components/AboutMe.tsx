@@ -109,12 +109,12 @@ const AboutMe = () => {
                   <div className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-primary/60" />
                   <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-primary/60" />
                   
-                  {/* Square image container */}
-                  <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-sm overflow-hidden border border-primary/30 bg-gradient-to-br from-primary/20 to-secondary">
+                  {/* Tall image container to show full image */}
+                  <div className="relative w-56 h-[420px] md:w-64 md:h-[480px] rounded-sm overflow-hidden border border-primary/30 bg-gradient-to-br from-primary/20 to-secondary">
                     <img 
                       src={aboutMePhoto} 
                       alt="Lakshmanan M" 
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-full object-cover"
                     />
                     
                     {/* Overlay gradient */}

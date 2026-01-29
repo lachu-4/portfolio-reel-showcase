@@ -64,40 +64,37 @@ const AboutMe = () => {
                 </h2>
 
                 {/* Main paragraphs */}
-                <div className="space-y-6 text-muted-foreground leading-relaxed">
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
                     Hi! I'm <span className="text-foreground font-medium">Lakshmanan M</span>, a passionate and creative Web Developer.
                   </p>
-                  
                   <p>
                     I'm a B.Tech Information Technology student at CMS College of Engineering, Coimbatore, where I've developed a strong interest in designing intuitive and visually appealing user interfaces that bring ideas to life on the web.
                   </p>
-                  
                   <p>
                     I focus on modern web design, responsive layouts, and interactive user experiences that balance aesthetics with functionality.
                   </p>
-                  
                   <p className="text-foreground">
                     Currently, I'm focusing on improving my skills in:
                   </p>
 
                   {/* Skills list */}
-                  <ul className="space-y-3">
+                  <ul className="space-y-2">
                     {skills.map((skill, index) => (
                       <li 
                         key={index}
-                        className={`flex items-center gap-3 transition-all duration-500 ${
+                        className={`flex items-start gap-2 transition-all duration-500 ${
                           isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
                         }`}
                         style={{ transitionDelay: `${index * 100 + 400}ms` }}
                       >
-                        <span className="text-primary font-bold">#</span>
+                        <span className="text-primary font-bold mt-1">#</span>
                         <span>{skill}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <p className="pt-4">
+                  <p>
                     I'm always eager to learn, collaborate, and grow as a developer while building impactful and innovative projects.
                   </p>
                 </div>
@@ -117,7 +114,7 @@ const AboutMe = () => {
                     <img 
                       src={aboutMePhoto} 
                       alt="Lakshmanan M" 
-                      className="w-full h-full object-cover object-center"
+                      className="w-full h-full object-cover object-top"
                     />
                     
                     {/* Overlay gradient */}

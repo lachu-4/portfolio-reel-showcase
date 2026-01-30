@@ -1,4 +1,4 @@
-import { Code, User, Github, Volume2 } from 'lucide-react';
+import { Code, User, Github } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const Hero = () => {
@@ -22,7 +22,6 @@ const Hero = () => {
 
   return (
     <section
-      id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden py-20"
     >
       {/* Background gradient */}
@@ -131,7 +130,7 @@ const Hero = () => {
                         {/* Orbiting dots */}
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1">
                           <div className="w-8 h-8 rounded-full bg-secondary border border-border flex items-center justify-center">
-                            <Volume2 size={14} className="text-muted-foreground" />
+                            <Code size={14} className="text-muted-foreground" />
                           </div>
                         </div>
                         <div className="absolute top-1/4 right-0 translate-x-2">
@@ -165,11 +164,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Sound button - bottom right */}
-      <button className="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-secondary border border-border
-                         flex items-center justify-center hover:border-primary/50 transition-all duration-300 z-20">
-        <Volume2 size={20} className="text-muted-foreground" />
-      </button>
     </section>
   );
 };

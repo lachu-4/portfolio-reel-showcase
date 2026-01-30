@@ -114,7 +114,7 @@ const AboutMe = () => {
                     <img 
                       src={aboutMePhoto} 
                       alt="Lakshmanan M" 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top"
                     />
                     
                     {/* Overlay gradient */}

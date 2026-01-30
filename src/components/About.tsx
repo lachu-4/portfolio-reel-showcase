@@ -24,7 +24,7 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="py-24 relative">
+    <section id="home" ref={sectionRef} className="py-24 relative">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-accent/5 to-background" />
 

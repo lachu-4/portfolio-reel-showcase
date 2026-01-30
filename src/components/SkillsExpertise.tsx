@@ -37,7 +37,7 @@ const SkillsExpertise = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 relative">
+    <section id="skillsexpertise" ref={sectionRef} className="py-24 relative">
       {/* Background accents */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/10 blur-[120px] rounded-full" />
 

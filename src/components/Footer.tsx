@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2 text-muted-foreground">
-            <span>© {currentYear} John Doe. Made with</span>
+            <span>© {currentYear} Lakshmanan M. Made with</span>
             <Heart className="text-primary" size={16} fill="currentColor" />
           </div>
 

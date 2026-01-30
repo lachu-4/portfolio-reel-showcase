@@ -40,50 +40,60 @@ const Hero = () => {
               {/* Left side - Text content */}
               <div>
                 {/* Status badges */}
-                <div className="flex flex-wrap gap-3 mb-8">
-                  <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 text-sm border border-border">
-                    <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <div className={`flex flex-wrap gap-3 mb-8 transition-all duration-700 delay-100 ${
+                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+                }`}>
+                  <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 text-sm border border-border animate-pulse">
+                    <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
                     SYSTEM READY
                   </span>
-                  <span className="px-4 py-2 rounded-full bg-secondary/80 text-sm border border-border">
+                  <span className="px-4 py-2 rounded-full bg-secondary/80 text-sm border border-border hover:border-primary/50 transition-colors">
                     PORTFOLIO 2025
                   </span>
                 </div>
 
                 {/* Main heading */}
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  Welcome to<br />
-                  my Portfolio<br />
-                  Website
+                <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight transition-all duration-700 delay-200 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}>
+                  <span className="inline-block hover:text-primary transition-colors duration-300">Welcome to</span><br />
+                  <span className="inline-block hover:scale-105 transition-transform duration-300">my Portfolio</span><br />
+                  <span className="inline-block text-gradient">Website</span>
                 </h1>
 
                 {/* Description */}
-                <p className="text-muted-foreground mb-8 max-w-md leading-relaxed">
+                <p className={`text-muted-foreground mb-8 max-w-md leading-relaxed transition-all duration-700 delay-300 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}>
                   Building modern, reliable, and fast digital experiences with a focus on clean
                   UI and solid engineering.
                 </p>
 
                 {/* Live Status */}
-                <p className="text-primary font-medium mb-4 tracking-wider text-sm">
-                  LIVE STATUS
+                <p className={`text-primary font-medium mb-4 tracking-wider text-sm transition-all duration-700 delay-400 ${
+                  isVisible ? 'opacity-100' : 'opacity-0'
+                }`}>
+                  <span className="animate-pulse">LIVE STATUS</span>
                 </p>
 
                 {/* Action buttons */}
-                <div className="flex flex-wrap gap-3 mb-6">
+                <div className={`flex flex-wrap gap-3 mb-6 transition-all duration-700 delay-500 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}>
                   <a
                     href="#projects"
                     className="flex items-center gap-2 px-5 py-3 rounded-full bg-secondary border border-border
-                               hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                               hover:border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-300 group"
                   >
-                    <Code size={16} />
+                    <Code size={16} className="group-hover:rotate-12 transition-transform" />
                     CODE
                   </a>
                   <a
-                    href="#about"
+                    href="#aboutme"
                     className="flex items-center gap-2 px-5 py-3 rounded-full bg-secondary border border-border
-                               hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                               hover:border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-300 group"
                   >
-                    <User size={16} />
+                    <User size={16} className="group-hover:scale-110 transition-transform" />
                     PROFILE
                   </a>
                   <a
@@ -91,9 +101,9 @@ const Hero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-5 py-3 rounded-full bg-secondary border border-border
-                               hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                               hover:border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-300 group"
                   >
-                    <Github size={16} />
+                    <Github size={16} className="group-hover:rotate-[360deg] transition-transform duration-500" />
                     SOURCE
                   </a>
                 </div>
@@ -101,35 +111,28 @@ const Hero = () => {
               </div>
 
               {/* Right side - Core UI Widget */}
-              <div className="flex justify-center lg:justify-end">
+              <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
+                isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+              }`}>
                 <div className="relative">
                   {/* Core UI Card */}
-                  <div className="glass rounded-2xl p-6 w-80 border border-border">
+                  <div className="glass rounded-2xl p-6 w-80 border border-border hover:border-primary/30 transition-colors duration-500">
                     {/* Header */}
                     <div className="flex justify-between items-center mb-6 text-sm">
                       <span className="text-muted-foreground tracking-wider">CORE UI</span>
                       <span className="text-primary flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                        <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
                         ONLINE
                       </span>
                     </div>
 
                     {/* Circular widget */}
                     <div className="relative flex items-center justify-center mb-6">
-                      {/* Outer ring */}
-                      <div className="w-48 h-48 rounded-full border-2 border-primary/30 flex items-center justify-center relative">
-                        {/* Middle ring with glow */}
-                        <div className="w-36 h-36 rounded-full border border-primary/50 flex items-center justify-center relative"
-                             style={{ boxShadow: 'var(--glow-primary)' }}>
-                          {/* Inner circle */}
-                          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center">
-                            <span className="text-foreground font-bold tracking-widest text-sm">WELCOME</span>
-                          </div>
-                        </div>
-                        
-                        {/* Orbiting dots */}
+                      {/* Outer ring - rotating slowly */}
+                      <div className="w-48 h-48 rounded-full border-2 border-primary/30 flex items-center justify-center relative animate-[spin_20s_linear_infinite]">
+                        {/* Orbiting dot on outer ring */}
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1">
-                          <div className="w-8 h-8 rounded-full bg-secondary border border-border flex items-center justify-center">
+                          <div className="w-8 h-8 rounded-full bg-secondary border border-border flex items-center justify-center hover:scale-110 transition-transform">
                             <Code size={14} className="text-muted-foreground" />
                           </div>
                         </div>
@@ -137,22 +140,32 @@ const Hero = () => {
                           <div className="w-4 h-4 rounded-full bg-primary animate-pulse" />
                         </div>
                         <div className="absolute bottom-1/3 left-0 -translate-x-2">
-                          <div className="w-3 h-3 rounded-full bg-primary/60" />
+                          <div className="w-3 h-3 rounded-full bg-primary/60 animate-ping" />
                         </div>
                         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1">
                           <div className="w-3 h-3 rounded-full bg-primary/40" />
                         </div>
                       </div>
+                      
+                      {/* Middle ring - rotating opposite direction */}
+                      <div className="absolute w-36 h-36 rounded-full border border-primary/50 animate-[spin_15s_linear_infinite_reverse]"
+                           style={{ boxShadow: 'var(--glow-primary)' }}>
+                      </div>
+                      
+                      {/* Inner circle - static with pulse */}
+                      <div className="absolute w-24 h-24 rounded-full bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center animate-pulse hover:scale-110 transition-transform cursor-pointer">
+                        <span className="text-foreground font-bold tracking-widest text-sm">WELCOME</span>
+                      </div>
                     </div>
 
                     {/* Stats */}
                     <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-secondary/50 rounded-xl p-4">
-                        <div className="text-3xl font-bold mb-1">0{loadedCount}</div>
+                      <div className="bg-secondary/50 rounded-xl p-4 hover:bg-secondary/70 transition-colors group">
+                        <div className="text-3xl font-bold mb-1 group-hover:text-primary transition-colors">0{loadedCount}</div>
                         <div className="text-sm text-muted-foreground">Loaded</div>
                       </div>
-                      <div className="bg-secondary/50 rounded-xl p-4">
-                        <div className="text-3xl font-bold mb-1">12ms</div>
+                      <div className="bg-secondary/50 rounded-xl p-4 hover:bg-secondary/70 transition-colors group">
+                        <div className="text-3xl font-bold mb-1 group-hover:text-primary transition-colors">12ms</div>
                         <div className="text-sm text-muted-foreground">Stable</div>
                       </div>
                     </div>

@@ -1,4 +1,4 @@
-import { Code, User, Github } from 'lucide-react';
+import { User, Github, Briefcase } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const Hero = () => {
@@ -7,7 +7,6 @@ const Hero = () => {
 
   useEffect(() => {
     setIsVisible(true);
-    // Animate the loaded count
     const interval = setInterval(() => {
       setLoadedCount(prev => {
         if (prev >= 6) {
@@ -39,9 +38,9 @@ const Hero = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left side - Text content */}
               <div>
-                {/* Status badges */}
+                {/* Status badges - slide from left */}
                 <div className={`flex flex-wrap gap-3 mb-8 transition-all duration-700 delay-100 ${
-                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
                 }`}>
                   <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 text-sm border border-border animate-pulse">
                     <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
@@ -52,40 +51,40 @@ const Hero = () => {
                   </span>
                 </div>
 
-                {/* Main heading */}
+                {/* Main heading - slide from right */}
                 <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight transition-all duration-700 delay-200 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
                 }`}>
                   <span className="inline-block hover:text-primary transition-colors duration-300">Welcome to</span><br />
                   <span className="inline-block hover:scale-105 transition-transform duration-300">my Portfolio</span><br />
                   <span className="inline-block text-gradient">Website</span>
                 </h1>
 
-                {/* Description */}
+                {/* Description - slide from left */}
                 <p className={`text-muted-foreground mb-8 max-w-md leading-relaxed transition-all duration-700 delay-300 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
                 }`}>
                   Building modern, reliable, and fast digital experiences with a focus on clean
                   UI and solid engineering.
                 </p>
 
-                {/* Live Status */}
+                {/* Live Status - slide from right */}
                 <p className={`text-primary font-medium mb-4 tracking-wider text-sm transition-all duration-700 delay-400 ${
-                  isVisible ? 'opacity-100' : 'opacity-0'
+                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
                 }`}>
                   <span className="animate-pulse">LIVE STATUS</span>
                 </p>
 
-                {/* Action buttons */}
+                {/* Action buttons - slide from left */}
                 <div className={`flex flex-wrap gap-3 mb-6 transition-all duration-700 delay-500 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
                 }`}>
                   <a
                     href="#projects"
                     className="flex items-center gap-2 px-5 py-3 rounded-full bg-secondary border border-border
                                hover:border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-300 group"
                   >
-                    <Code size={16} className="group-hover:rotate-12 transition-transform" />
+                    <Briefcase size={16} className="group-hover:rotate-12 transition-transform" />
                     CODE
                   </a>
                   <a
@@ -112,7 +111,7 @@ const Hero = () => {
 
               {/* Right side - Core UI Widget */}
               <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
-                isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                isVisible ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-90 translate-x-20'
               }`}>
                 <div className="relative">
                   {/* Core UI Card */}
@@ -130,20 +129,18 @@ const Hero = () => {
                     <div className="relative flex items-center justify-center mb-6">
                       {/* Outer ring - rotating slowly */}
                       <div className="w-48 h-48 rounded-full border-2 border-primary/30 flex items-center justify-center relative animate-[spin_20s_linear_infinite]">
-                        {/* Orbiting dot on outer ring */}
+                        {/* Orbiting dots on outer ring - all same size */}
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1">
-                          <div className="w-8 h-8 rounded-full bg-secondary border border-border flex items-center justify-center hover:scale-110 transition-transform">
-                            <Code size={14} className="text-muted-foreground" />
-                          </div>
-                        </div>
-                        <div className="absolute top-1/4 right-0 translate-x-2">
                           <div className="w-4 h-4 rounded-full bg-primary animate-pulse" />
                         </div>
-                        <div className="absolute bottom-1/3 left-0 -translate-x-2">
-                          <div className="w-3 h-3 rounded-full bg-primary/60 animate-ping" />
+                        <div className="absolute top-1/4 right-0 translate-x-1">
+                          <div className="w-4 h-4 rounded-full bg-primary animate-pulse" />
+                        </div>
+                        <div className="absolute bottom-1/3 left-0 -translate-x-1">
+                          <div className="w-4 h-4 rounded-full bg-primary/80 animate-pulse" />
                         </div>
                         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1">
-                          <div className="w-3 h-3 rounded-full bg-primary/40" />
+                          <div className="w-4 h-4 rounded-full bg-primary/60 animate-pulse" />
                         </div>
                       </div>
                       

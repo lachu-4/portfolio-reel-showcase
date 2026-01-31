@@ -38,10 +38,13 @@ const Hero = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left side - Text content */}
               <div>
-                {/* Status badges - slide from left */}
-                <div className={`flex flex-wrap gap-3 mb-8 transition-all duration-700 delay-100 ${
-                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
-                }`}>
+              {/* Status badges - slide from left */}
+                <div 
+                  className={`flex flex-wrap gap-3 mb-8 transition-all duration-1000 ease-out ${
+                    isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+                  }`}
+                  style={{ transitionDelay: '200ms' }}
+                >
                   <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 text-sm border border-border animate-pulse">
                     <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
                     SYSTEM READY
@@ -52,45 +55,58 @@ const Hero = () => {
                 </div>
 
                 {/* Main heading - slide from right */}
-                <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight transition-all duration-700 delay-200 ${
-                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
-                }`}>
+                <h1 
+                  className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight transition-all duration-1000 ease-out ${
+                    isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+                  }`}
+                  style={{ transitionDelay: '500ms' }}
+                >
                   <span className="inline-block hover:text-primary transition-colors duration-300">Welcome to</span><br />
                   <span className="inline-block hover:scale-105 transition-transform duration-300">my Portfolio</span><br />
                   <span className="inline-block text-gradient">Website</span>
                 </h1>
 
                 {/* Description - slide from left */}
-                <p className={`text-muted-foreground mb-8 max-w-md leading-relaxed transition-all duration-700 delay-300 ${
-                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
-                }`}>
+                <p 
+                  className={`text-muted-foreground mb-8 max-w-md leading-relaxed transition-all duration-1000 ease-out ${
+                    isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+                  }`}
+                  style={{ transitionDelay: '800ms' }}
+                >
                   Building modern, reliable, and fast digital experiences with a focus on clean
                   UI and solid engineering.
                 </p>
 
                 {/* Live Status - slide from right */}
-                <p className={`text-primary font-medium mb-4 tracking-wider text-sm transition-all duration-700 delay-400 ${
-                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
-                }`}>
+                <p 
+                  className={`text-primary font-medium mb-4 tracking-wider text-sm transition-all duration-1000 ease-out ${
+                    isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+                  }`}
+                  style={{ transitionDelay: '1100ms' }}
+                >
                   <span className="animate-pulse">LIVE STATUS</span>
                 </p>
 
-                {/* Action buttons - slide from left */}
-                <div className={`flex flex-wrap gap-3 mb-6 transition-all duration-700 delay-500 ${
-                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
-                }`}>
+                {/* Action buttons - slide from left, each with staggered delay */}
+                <div className="flex flex-wrap gap-3 mb-6">
                   <a
                     href="#projects"
-                    className="flex items-center gap-2 px-5 py-3 rounded-full bg-secondary border border-border
-                               hover:border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-300 group"
+                    className={`flex items-center gap-2 px-5 py-3 rounded-full bg-secondary border border-border
+                               hover:border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-1000 ease-out group ${
+                      isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+                    }`}
+                    style={{ transitionDelay: '1400ms' }}
                   >
                     <Briefcase size={16} className="group-hover:rotate-12 transition-transform" />
                     CODE
                   </a>
                   <a
                     href="#aboutme"
-                    className="flex items-center gap-2 px-5 py-3 rounded-full bg-secondary border border-border
-                               hover:border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-300 group"
+                    className={`flex items-center gap-2 px-5 py-3 rounded-full bg-secondary border border-border
+                               hover:border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-1000 ease-out group ${
+                      isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+                    }`}
+                    style={{ transitionDelay: '1600ms' }}
                   >
                     <User size={16} className="group-hover:scale-110 transition-transform" />
                     PROFILE
@@ -99,8 +115,11 @@ const Hero = () => {
                     href="https://github.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-3 rounded-full bg-secondary border border-border
-                               hover:border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-300 group"
+                    className={`flex items-center gap-2 px-5 py-3 rounded-full bg-secondary border border-border
+                               hover:border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-1000 ease-out group ${
+                      isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+                    }`}
+                    style={{ transitionDelay: '1800ms' }}
                   >
                     <Github size={16} className="group-hover:rotate-[360deg] transition-transform duration-500" />
                     SOURCE

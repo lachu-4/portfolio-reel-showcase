@@ -115,7 +115,7 @@ const AboutMe = () => {
                     <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-primary/60" />
                     
                     {/* Image container */}
-                    <div className="relative w-56 h-56 md:w-64 md:h-64 overflow-hidden border-2 border-primary/40 bg-gradient-to-br from-primary/20 to-secondary shadow-[0_0_30px_rgba(var(--primary-rgb,255,0,100),0.3)]">
+                    <div className="relative w-64 h-64 md:w-80 md:h-80 overflow-hidden border-2 border-primary/40 bg-gradient-to-br from-primary/20 to-secondary shadow-[0_0_30px_rgba(var(--primary-rgb,255,0,100),0.3)]">
                       <img 
                         src={aboutMePhoto} 
                         alt="Lakshmanan M" 

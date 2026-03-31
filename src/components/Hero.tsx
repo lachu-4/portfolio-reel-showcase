@@ -3,19 +3,14 @@ import { useEffect, useState } from 'react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [loadedCount, setLoadedCount] = useState(0);
+  const [rotationCount, setRotationCount] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
+    // Track rotations: outer ring spins every 20s
     const interval = setInterval(() => {
-      setLoadedCount(prev => {
-        if (prev >= 6) {
-          clearInterval(interval);
-          return 6;
-        }
-        return prev + 1;
-      });
-    }, 200);
+      setRotationCount(prev => prev + 1);
+    }, 20000);
     return () => clearInterval(interval);
   }, []);
 
@@ -112,7 +107,7 @@ const Hero = () => {
                     PROFILE
                   </a>
                   <a
-                    href="https://github.com"
+                    href="https://github.com/lachu-4/portfolio-reel-showcase.git"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`flex items-center gap-2 px-5 py-3 rounded-full bg-secondary border border-border
@@ -177,8 +172,8 @@ const Hero = () => {
                     {/* Stats */}
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-secondary/50 rounded-xl p-4 hover:bg-secondary/70 transition-colors group">
-                        <div className="text-3xl font-bold mb-1 group-hover:text-primary transition-colors">0{loadedCount}</div>
-                        <div className="text-sm text-muted-foreground">Loaded</div>
+                        <div className="text-3xl font-bold mb-1 group-hover:text-primary transition-colors">{String(rotationCount).padStart(2, '0')}</div>
+                        <div className="text-sm text-muted-foreground">Rotations</div>
                       </div>
                       <div className="bg-secondary/50 rounded-xl p-4 hover:bg-secondary/70 transition-colors group">
                         <div className="text-3xl font-bold mb-1 group-hover:text-primary transition-colors">12ms</div>

@@ -3,19 +3,14 @@ import { useEffect, useState } from 'react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [loadedCount, setLoadedCount] = useState(0);
+  const [rotationCount, setRotationCount] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
+    // Track rotations: outer ring spins every 20s
     const interval = setInterval(() => {
-      setLoadedCount(prev => {
-        if (prev >= 6) {
-          clearInterval(interval);
-          return 6;
-        }
-        return prev + 1;
-      });
-    }, 200);
+      setRotationCount(prev => prev + 1);
+    }, 20000);
     return () => clearInterval(interval);
   }, []);
 

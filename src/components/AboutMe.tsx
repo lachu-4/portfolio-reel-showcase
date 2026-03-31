@@ -110,7 +110,7 @@ const AboutMe = () => {
                   <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-primary/60" />
                   
                   {/* Tall image container to show full image */}
-                  <div className="relative w-56 h-[420px] md:w-64 md:h-[480px] rounded-sm overflow-hidden border border-primary/30 bg-gradient-to-br from-primary/20 to-secondary">
+                  <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-sm overflow-hidden border border-primary/30 bg-gradient-to-br from-primary/20 to-secondary">
                     <img 
                       src={aboutMePhoto} 
                       alt="Lakshmanan M" 

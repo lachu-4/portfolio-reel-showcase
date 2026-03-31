@@ -172,8 +172,8 @@ const Hero = () => {
                     {/* Stats */}
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-secondary/50 rounded-xl p-4 hover:bg-secondary/70 transition-colors group">
-                        <div className="text-3xl font-bold mb-1 group-hover:text-primary transition-colors">0{loadedCount}</div>
-                        <div className="text-sm text-muted-foreground">Loaded</div>
+                        <div className="text-3xl font-bold mb-1 group-hover:text-primary transition-colors">{String(rotationCount).padStart(2, '0')}</div>
+                        <div className="text-sm text-muted-foreground">Rotations</div>
                       </div>
                       <div className="bg-secondary/50 rounded-xl p-4 hover:bg-secondary/70 transition-colors group">
                         <div className="text-3xl font-bold mb-1 group-hover:text-primary transition-colors">12ms</div>

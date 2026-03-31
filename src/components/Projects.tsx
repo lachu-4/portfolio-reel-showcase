@@ -84,66 +84,71 @@ const Projects = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="text-center mb-20">
-            <h2 className="section-title">
-              Featured <span className="text-gradient">Projects</span>
-            </h2>
-            <p className="section-subtitle mx-auto">
-              A selection of my recent work showcasing my skills and passion for development
+          <div className="text-center mb-16">
+            <p className="text-muted-foreground uppercase tracking-widest text-sm mb-4">PROJECTS</p>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              A showcase of my recent projects demonstrating expertise in full-stack development, modern frameworks, and creative problem-solving.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div
                 key={project.title}
-                className="project-card group"
+                className="group flex flex-col"
                 style={{ 
                   transitionDelay: `${index * 150}ms`,
                   opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateY(0)' : 'translateY(20px)'
+                  transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+                  transition: 'opacity 0.6s ease, transform 0.6s ease'
                 }}
               >
-                {/* Project Image */}
-                <div className="relative h-64 overflow-hidden">
+                {/* Rounded image preview */}
+                <div className="relative mx-auto w-full max-w-[280px] aspect-[4/3] rounded-2xl overflow-hidden border border-border/50 shadow-lg group-hover:shadow-primary/20 transition-shadow duration-500 bg-muted/30">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-                  
-                  {/* Overlay links */}
-                  <div className="absolute top-4 right-4 flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <a
-                      href={project.github}
-                      className="p-3 rounded-full glass hover:bg-primary/20 transition-colors"
-                    >
-                      <Github size={20} />
-                    </a>
-                    <a
-                      href={project.live}
-                      className="p-3 rounded-full glass hover:bg-primary/20 transition-colors"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
                 </div>
 
                 {/* Project Info */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-gradient transition-all duration-300">
+                <div className="mt-5 text-center px-2">
+                  <h3 className="text-lg font-bold mb-1 group-hover:text-primary transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4">{project.description}</p>
+                  <p className="text-muted-foreground text-sm mb-3 leading-relaxed">{project.description}</p>
                   
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap justify-center gap-2 mb-4">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="skill-badge text-xs">
+                      <span key={tag} className="px-3 py-1 text-xs rounded-full border border-border/60 text-muted-foreground bg-muted/20">
                         {tag}
                       </span>
                     ))}
+                  </div>
+
+                  {/* Action buttons */}
+                  <div className="flex justify-center gap-3">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-5 py-2 text-sm rounded-full bg-primary/20 text-primary hover:bg-primary/30 border border-primary/30 transition-colors duration-300"
+                    >
+                      <Github size={14} />
+                      GitHub
+                    </a>
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-5 py-2 text-sm rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300"
+                    >
+                      <ExternalLink size={14} />
+                      Live Demo
+                    </a>
                   </div>
                 </div>
               </div>

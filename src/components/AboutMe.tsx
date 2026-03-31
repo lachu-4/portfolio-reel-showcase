@@ -100,29 +100,36 @@ const AboutMe = () => {
                 </div>
               </div>
 
-              {/* Right side - Image */}
-              <div className="flex justify-center lg:justify-end">
-                <div className="relative">
-                  {/* Decorative corner brackets */}
-                  <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-primary/60" />
-                  <div className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-primary/60" />
-                  <div className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-primary/60" />
-                  <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-primary/60" />
+              {/* Right side - Image with tilted card effect */}
+              <div className="flex justify-center lg:justify-end items-center">
+                <div className="relative group">
+                  {/* Glow effect behind */}
+                  <div className="absolute -inset-4 bg-primary/20 blur-2xl rounded-full opacity-60" />
                   
-                  {/* Tall image container to show full image */}
-                  <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-sm overflow-hidden border border-primary/30 bg-gradient-to-br from-primary/20 to-secondary">
-                    <img 
-                      src={aboutMePhoto} 
-                      alt="Lakshmanan M" 
-                      className="w-full h-full object-cover object-top"
-                    />
+                  {/* Tilted card */}
+                  <div className="relative rotate-3 hover:rotate-0 transition-transform duration-500">
+                    {/* Corner brackets on the rotated card */}
+                    <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-primary/60" />
+                    <div className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-primary/60" />
+                    <div className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-primary/60" />
+                    <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-primary/60" />
                     
-                    {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
+                    {/* Image container */}
+                    <div className="relative w-56 h-56 md:w-64 md:h-64 overflow-hidden border-2 border-primary/40 bg-gradient-to-br from-primary/20 to-secondary shadow-[0_0_30px_rgba(var(--primary-rgb,255,0,100),0.3)]">
+                      <img 
+                        src={aboutMePhoto} 
+                        alt="Lakshmanan M" 
+                        className="w-full h-full object-cover object-top"
+                      />
+                      
+                      {/* Overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
+                    </div>
                   </div>
 
                   {/* Decorative dots */}
                   <div className="absolute -bottom-4 -right-4 w-3 h-3 rounded-full bg-primary/40 animate-pulse" />
+                  <div className="absolute -top-6 -left-2 w-2 h-2 rounded-full bg-primary/30 animate-pulse" style={{ animationDelay: '1s' }} />
                 </div>
               </div>
             </div>

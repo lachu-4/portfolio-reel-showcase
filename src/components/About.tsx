@@ -34,7 +34,7 @@ const About = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             {/* Left side - Content */}
             <div>
               {/* Availability badge */}

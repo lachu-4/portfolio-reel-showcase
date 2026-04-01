@@ -80,7 +80,7 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid gap-16 max-w-5xl mx-auto lg:grid-cols-2">
+          <div className="grid gap-16 max-w-5xl mx-auto grid-cols-2">
             {/* Contact Info */}
             <div>
               <h3 className="text-2xl font-bold mb-8">Let's talk about your project</h3>

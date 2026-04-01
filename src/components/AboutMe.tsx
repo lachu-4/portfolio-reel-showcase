@@ -55,7 +55,7 @@ const AboutMe = () => {
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-12">
+            <div className="grid grid-cols-3 gap-12">
               {/* Left side - Content (2 columns) */}
               <div className="lg:col-span-2">
                 {/* Section title */}

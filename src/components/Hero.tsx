@@ -30,7 +30,7 @@ const Hero = () => {
         >
           {/* Main content wrapper */}
           <div className="glass rounded-3xl p-8 md:p-12 max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-2 gap-12 items-center">
               {/* Left side - Text content */}
               <div>
               {/* Status badges - slide from left */}

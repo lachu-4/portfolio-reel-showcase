@@ -77,7 +77,7 @@ const SkillsExpertise = () => {
           </div>
 
           {/* Skills Grid - Card Layout */}
-          <div className="grid gap-6 max-w-6xl mx-auto lg:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-6 max-w-6xl mx-auto grid-cols-3">
             {skills.map((skill, index) => {
               const IconComponent = skill.icon;
               return (

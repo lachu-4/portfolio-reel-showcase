@@ -34,7 +34,7 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="flex items-center gap-8">
           {navLinks.map((link) => (
             <a key={link.name} href={link.href} className="nav-link">
               {link.name}
@@ -44,7 +44,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="lg:hidden text-foreground"
+          className="hidden text-foreground"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

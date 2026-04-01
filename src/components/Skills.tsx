@@ -81,7 +81,7 @@ const Skills = () => {
           </div>
 
           {/* Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid gap-6 max-w-6xl mx-auto lg:grid-cols-2 xl:grid-cols-3">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (

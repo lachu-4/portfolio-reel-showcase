@@ -107,7 +107,7 @@ const AboutMe = () => {
                   <div className="absolute -inset-4 bg-primary/20 blur-2xl rounded-full opacity-60" />
                   
                   {/* Tilted card */}
-                  <div className="relative rotate-3 hover:rotate-0 transition-transform duration-500">
+                  <div className="relative transition-transform duration-500">
                     {/* Corner brackets on the rotated card */}
                     <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-primary/60" />
                     <div className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-primary/60" />

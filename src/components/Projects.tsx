@@ -95,7 +95,7 @@ const Projects = () => {
             {projects.map((project, index) => (
               <div
                 key={project.title}
-                className="group flex flex-col"
+                className="group flex flex-col rounded-2xl border border-red-500/40 p-4 hover:border-red-500/70 transition-colors duration-300"
                 style={{ 
                   transitionDelay: `${index * 150}ms`,
                   opacity: isVisible ? 1 : 0,

@@ -68,67 +68,70 @@ const Skills = () => {
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent/10 blur-[120px] rounded-full" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div
-          className={`transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          {/* Section Title */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-primary">OUR</span> Features & <span className="text-gradient">Services</span>
-            </h2>
-          </div>
+        {/* Section Title */}
+        <div className="text-center mb-16">
+          <h2
+            className={`text-4xl md:text-5xl font-bold mb-4 transition-all duration-1000 ease-out ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
+            }`}
+            style={{ transitionDelay: '200ms' }}
+          >
+            <span className="text-primary">OUR</span> Features & <span className="text-gradient">Services</span>
+          </h2>
+        </div>
 
-          {/* Services Grid */}
-          <div className="grid gap-6 max-w-6xl mx-auto grid-cols-3">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <div
-                  key={service.title}
-                  className="group relative glass rounded-2xl p-8 border border-border hover:border-primary/50 transition-all duration-500 hover:glow-primary"
-                  style={{
-                    transitionDelay: `${index * 100}ms`,
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                  }}
-                >
-                  {/* Icon */}
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/30">
-                      <IconComponent className="w-8 h-8 text-primary-foreground" />
-                    </div>
+        {/* Services Grid */}
+        <div className="grid gap-6 max-w-6xl mx-auto grid-cols-3">
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            const isEven = index % 2 === 0;
+            return (
+              <div
+                key={service.title}
+                className="group relative glass rounded-2xl p-8 border border-border hover:border-primary/50 transition-all duration-500 hover:glow-primary"
+                style={{
+                  transitionDelay: `${index * 150 + 400}ms`,
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible
+                    ? 'translateX(0) translateY(0) scale(1)'
+                    : `translateX(${isEven ? '-30px' : '30px'}) translateY(20px) scale(0.95)`,
+                  transition: 'opacity 0.8s ease, transform 0.8s ease',
+                }}
+              >
+                {/* Icon */}
+                <div className="flex justify-center mb-6">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/30">
+                    <IconComponent className="w-8 h-8 text-primary-foreground" />
                   </div>
-
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-center mb-4 text-foreground">
-                    {service.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-muted-foreground text-center text-sm leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {service.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1.5 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium border border-border hover:border-primary/50 transition-colors"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Hover glow effect */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 </div>
-              );
-            })}
-          </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-bold text-center mb-4 text-foreground">
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-muted-foreground text-center text-sm leading-relaxed mb-6">
+                  {service.description}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap justify-center gap-2">
+                  {service.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1.5 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium border border-border hover:border-primary/50 transition-colors"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Hover glow effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

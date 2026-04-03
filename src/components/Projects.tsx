@@ -35,20 +35,20 @@ const projects = [
     live: 'https://to-do-list-red-rho-73.vercel.app/',
   },
   {
-    title: 'Onion Marketing',
-    description: 'A marketing website for onion products with modern UI and responsive design.',
-    tags: ['React', 'TailwindCSS', 'Marketing'],
-    image: 'https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?w=800&h=600&fit=crop',
-    github: 'https://github.com/lachu-4/onion-marketing-.git',
-    live: 'https://onion-marketing.vercel.app/',
+    title: 'Portfolio Website',
+    description: 'A modern, animated personal portfolio website showcasing projects, skills, and contact info.',
+    tags: ['React', 'TailwindCSS', 'Vite'],
+    image: 'https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=800&h=600&fit=crop',
+    github: 'https://github.com/lachu-4/portfolio-reel-showcase.git',
+    live: '',
   },
   {
-    title: 'Calculator App',
-    description: 'A sleek calculator application with standard arithmetic operations and clean interface.',
-    tags: ['React', 'JavaScript', 'CSS'],
-    image: 'https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=800&h=600&fit=crop',
-    github: 'https://github.com/lachu-4/Calculator.git',
-    live: 'https://calculator-theta-liard-60.vercel.app/',
+    title: 'Temp Email',
+    description: 'A temporary email service website for generating disposable email addresses instantly.',
+    tags: ['React', 'API', 'Privacy'],
+    image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&h=600&fit=crop',
+    github: 'https://github.com/lachu-4/tailored-mail.git',
+    live: 'https://temp-mail-taupe.vercel.app/',
   },
 ];
 
@@ -79,67 +79,75 @@ const Projects = () => {
       <div className="absolute top-1/2 left-0 w-1/2 h-96 bg-primary/5 blur-3xl" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div
-          className={`transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          <div className="text-center mb-16">
-            <p className="text-muted-foreground uppercase tracking-widest text-sm mb-4">PROJECTS</p>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A showcase of my recent projects demonstrating expertise in full-stack development, modern frameworks, and creative problem-solving.
-            </p>
-          </div>
+        <div className="text-center mb-16">
+          <p
+            className={`text-muted-foreground uppercase tracking-widest text-sm mb-4 transition-all duration-1000 ease-out ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
+            }`}
+            style={{ transitionDelay: '200ms' }}
+          >
+            PROJECTS
+          </p>
+          <p
+            className={`text-muted-foreground max-w-2xl mx-auto transition-all duration-1000 ease-out ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+            style={{ transitionDelay: '400ms' }}
+          >
+            A showcase of my recent projects demonstrating expertise in full-stack development, modern frameworks, and creative problem-solving.
+          </p>
+        </div>
 
-          <div className="grid gap-8 grid-cols-3">
-            {projects.map((project, index) => (
-              <div
-                key={project.title}
-                className="group flex flex-col rounded-2xl border border-primary/40 p-4 hover:border-primary/70 transition-colors duration-300"
-                style={{ 
-                  transitionDelay: `${index * 150}ms`,
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                  transition: 'opacity 0.6s ease, transform 0.6s ease'
-                }}
-              >
-                {/* Rounded image preview */}
-                <div className="relative mx-auto w-full max-w-[280px] aspect-[4/3] rounded-2xl overflow-hidden border border-border/50 shadow-lg group-hover:shadow-primary/20 transition-shadow duration-500 bg-muted/30">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+        <div className="grid gap-8 grid-cols-3">
+          {projects.map((project, index) => (
+            <div
+              key={project.title}
+              className="group flex flex-col rounded-2xl border border-primary/40 p-4 hover:border-primary/70 transition-colors duration-300"
+              style={{ 
+                transitionDelay: `${index * 150 + 500}ms`,
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.95)',
+                transition: 'opacity 0.8s ease, transform 0.8s ease'
+              }}
+            >
+              {/* Rounded image preview */}
+              <div className="relative mx-auto w-full max-w-[280px] aspect-[4/3] rounded-2xl overflow-hidden border border-border/50 shadow-lg group-hover:shadow-primary/20 transition-shadow duration-500 bg-muted/30">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+              </div>
+
+              {/* Project Info */}
+              <div className="mt-5 text-center px-2">
+                <h3 className="text-lg font-bold mb-1 group-hover:text-primary transition-colors duration-300">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground text-sm mb-3 leading-relaxed">{project.description}</p>
+                
+                {/* Tags */}
+                <div className="flex flex-wrap justify-center gap-2 mb-4">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="px-3 py-1 text-xs rounded-full border border-border/60 text-muted-foreground bg-muted/20">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
 
-                {/* Project Info */}
-                <div className="mt-5 text-center px-2">
-                  <h3 className="text-lg font-bold mb-1 group-hover:text-primary transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-3 leading-relaxed">{project.description}</p>
-                  
-                  {/* Tags */}
-                  <div className="flex flex-wrap justify-center gap-2 mb-4">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="px-3 py-1 text-xs rounded-full border border-border/60 text-muted-foreground bg-muted/20">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Action buttons */}
-                  <div className="flex justify-center gap-3">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 px-5 py-2 text-sm rounded-full bg-primary/20 text-primary hover:bg-primary/30 border border-primary/30 transition-colors duration-300"
-                    >
-                      <Github size={14} />
-                      GitHub
-                    </a>
+                {/* Action buttons */}
+                <div className="flex justify-center gap-3">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-5 py-2 text-sm rounded-full bg-primary/20 text-primary hover:bg-primary/30 border border-primary/30 transition-colors duration-300"
+                  >
+                    <Github size={14} />
+                    GitHub
+                  </a>
+                  {project.live && (
                     <a
                       href={project.live}
                       target="_blank"
@@ -149,11 +157,11 @@ const Projects = () => {
                       <ExternalLink size={14} />
                       Live Demo
                     </a>
-                  </div>
+                  )}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
